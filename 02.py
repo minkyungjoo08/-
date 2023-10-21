@@ -30,7 +30,7 @@ geo_json = 'TL_SCCO_CTPRVN.json'
 
 folium.GeoJson(geo_json).add_to(map_geo)
 
-#folium.Choropleth(geo_data=geo_json,
+folium.Choropleth(geo_data=geo_json,
                data=battle_df,
                columns=['지역','격전횟수'],
                fill_color ='BuPu',
