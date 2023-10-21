@@ -14,7 +14,7 @@ AI와 SW기술에 많은 흥미를 가지고 있습니다.
   col1.text('''새로운 기술을 찾고 접목하여 기존의
 문제를 효과적으로 해결하는일을 좋아합니다. ''')
 
-  col1.write("""<a href="https://minkyungjoo.streamlit.app/")
+  col1.write("""<a href="https://minkyungjoo.streamlit.app/""")
 
   col2.image("학생증")
 
@@ -31,40 +31,42 @@ AI와 SW기술에 많은 흥미를 가지고 있습니다.
   col1.text("학교: 양정중학교 재학중")
   col2.text("E-Mail: minkyungjoo08@gmail.com")
   col3.text("Github: github.com/minkyungjoo08")
+
+with tab2
   
-  
-df=pd.read_csv("gj.csv")
-df1=df.drop(['내용','등록자','시기','출처'],axis=1)
-df2=df.drop(['내용','등록자','시기','출처','인물'],axis=1)
-st.dataframe(df1) #제목,지역,인물(df)
+with tab3:
+  df=pd.read_csv("gj.csv")
+  df1=df.drop(['내용','등록자','시기','출처'],axis=1)
+  df2=df.drop(['내용','등록자','시기','출처','인물'],axis=1)
+  st.dataframe(df1) #제목,지역,인물(df)
 
 
 
 
-battle_df=df2.groupby('지역').count().reset_index()
-battle_df.rename(columns={'제목':'격전횟수'},inplace=True)
-battle_df=battle_df.sort_values(by='격전횟수',ascending = True)
-st.dataframe(battle_df)#격전횟수 없는지역 추가X
+  battle_df=df2.groupby('지역').count().reset_index()
+  battle_df.rename(columns={'제목':'격전횟수'},inplace=True)
+  battle_df=battle_df.sort_values(by='격전횟수',ascending = True)
+  st.dataframe(battle_df)#격전횟수 없는지역 추가X
 
-df2 = pd.DataFrame({'지역' : ['제주특별자치도','대전광역시','세종특별자치시','울산광역시','부산광역시'],'격전횟수':[0,0,0,0,0]}) #df수정가능성있음
+  df2 = pd.DataFrame({'지역' : ['제주특별자치도','대전광역시','세종특별자치시','울산광역시','부산광역시'],'격전횟수':[0,0,0,0,0]}) #df수정가능성있음
 
-battle_df=pd.concat([battle_df,df2],ignore_index=True)
+  battle_df=pd.concat([battle_df,df2],ignore_index=True)
 
-st.dataframe(battle_df)#추가한것
+  st.dataframe(battle_df)#추가한것
 
-map_geo = folium.Map(location=[35.5666,126.9784], zoom_start=7)
-st_data=st_folium(map_geo,width=700, height=1000)#지도
+  map_geo = folium.Map(location=[35.5666,126.9784], zoom_start=7)
+  st_data=st_folium(map_geo,width=700, height=1000)#지도
 
-geo_json = 'TL_SCCO_CTPRVN (2).json'
+  geo_json = 'TL_SCCO_CTPRVN (2).json'
 
 #folium.GeoJson(geo_json).add_to(map_geo)
 
-folium.Choropleth(geo_data=geo_json,
-               data=battle_df,
-               columns=['지역','격전횟수'],
-               fill_color ='BuPu',
-               key_on = 'feature.properties.CTP_KOR_NM',
-               legend_name="격전횟수"
-               ).add_to(map_geo)
+  folium.Choropleth(geo_data=geo_json,
+                 data=battle_df,
+                 columns=['지역','격전횟수'],
+                 fill_color ='BuPu',
+                 key_on = 'feature.properties.CTP_KOR_NM',
+                 legend_name="격전횟수"
+                 ).add_to(map_geo)
 
-st_map=st_folium(map_geo,width=700, height=1000 )#시각화 지도
+  st_map=st_folium(map_geo,width=700, height=1000 )#시각화 지도
