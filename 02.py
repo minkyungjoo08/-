@@ -35,7 +35,7 @@ folium.Choropleth(geo_data=geo_json,
                columns=['지역','격전횟수'],
                fill_color ='BuPu',
                key_on = 'feature.properties.CTP_KOR_NM',
-               legend_name="격전횟수")
-               .add_to(map_geo)
+               legend_name="격전횟수"
+               ).add_to(map_geo)
 
 st_map=st_folium(map_geo,width=700, height=1000 )
