@@ -4,7 +4,7 @@ import folium
 import numpy 
 from streamlit_folium import st_folium
 
-with tab2:
+with tab1:
   col1  ,col2 = st.columns([2,1)]
 
   col1.subhead("프로그래머를 꿈꾸는 민경주입니다.")
