@@ -28,7 +28,7 @@ st_data=st_folium(map_geo,width=700, height=1000)
 
 geo_json = 'TL_SCCO_CTPRVN.json'
 
-folium.GeoJson(geo_json).add_to(map_geo)
+##folium.GeoJson(geo_json).add_to(map_geo)
 
 folium.Choropleth(geo_data=geo_json,
                data=battle_df,
