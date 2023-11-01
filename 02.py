@@ -33,7 +33,12 @@ AI와 SW기술에 많은 흥미를 가지고 있습니다.
   col3.text("Github: github.com/minkyungjoo08")
 
 with tab2
-  
+  col1  ,col2 = st.columns([2,1)]
+
+  col1.subhead("6.25전쟁")
+  col1.text('''우리 민족이 겪은 분단의 고통과 슬픔에 대해 잘 알아야 될 필요가 있다고 생각합니다.''')
+  col1.text('''새로운 기술을 찾고 접목하여 기존의
+문제를 효과적으로 해결하는일을 좋아합니다. ''')
 with tab3:
   df=pd.read_csv("gj.csv")
   df1=df.drop(['내용','등록자','시기','출처'],axis=1)
