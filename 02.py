@@ -33,7 +33,7 @@ with tab1:
   map_geo = folium.Map(location=[35.5666,126.9784], zoom_start=7)
   #st_data=st_folium(map_geo,width=700, height=1000)#지도
 
-  geo_json = 'TL_SCCO_CTPRVN.json'
+  geo_json = 'TL_SCCO_CTPRVN(2).json'
 
 #folium.GeoJson(geo_json).add_to(map_geo)
 
@@ -88,7 +88,7 @@ AI와 SW기술에 많은 흥미를 가지고 있습니다.''')
   col1.text('''새로운 기술을 찾고 접목하여 
 기존의 문제를 효과적으로 해결하는일을 좋아합니다. ''')
   col1.link_button('Go to my github',url='https://github.com/minkyungjoo08/-')
-  col2.image("사진.jpg")
+  col2.image("여권사진.png")
 
   st.divider() 
 
